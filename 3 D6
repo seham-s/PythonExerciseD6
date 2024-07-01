@@ -1,0 +1,20 @@
+import pickle
+
+book = {"title": "Head First Python", "author": "Paul Barry", "price": "50 USD"}
+
+def save_pickle(obj, filename):
+    with open(filename, 'wb') as file:
+        pickle.dump(obj, file)
+
+def load_pickle(filename):
+    with open(filename, 'rb') as file:
+        return pickle.load(file)
+
+pickle_file = 'book.pickle'
+
+save_pickle(book, pickle_file)
+print(f"Dictionary has been pickled to {pickle_file}")
+
+loaded_book = load_pickle(pickle_file)
+print("Dictionary has been loaded from the pickled file:")
+print(loaded_book)
